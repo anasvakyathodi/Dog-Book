@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/Dog-Book/static/js/main.d6b737a7.chunk.js",
+    "main.js.map": "/Dog-Book/static/js/main.d6b737a7.chunk.js.map",
+    "runtime-main.js": "/Dog-Book/static/js/runtime-main.f03f2f2e.js",
+    "runtime-main.js.map": "/Dog-Book/static/js/runtime-main.f03f2f2e.js.map",
+    "static/js/2.313fc0f9.chunk.js": "/Dog-Book/static/js/2.313fc0f9.chunk.js",
+    "static/js/2.313fc0f9.chunk.js.map": "/Dog-Book/static/js/2.313fc0f9.chunk.js.map",
+    "index.html": "/Dog-Book/index.html",
+    "precache-manifest.153beb78eb4d66a435b50e65a49fc8f7.js": "/Dog-Book/precache-manifest.153beb78eb4d66a435b50e65a49fc8f7.js",
+    "service-worker.js": "/Dog-Book/service-worker.js",
+    "static/js/2.313fc0f9.chunk.js.LICENSE.txt": "/Dog-Book/static/js/2.313fc0f9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f03f2f2e.js",
+    "static/js/2.313fc0f9.chunk.js",
+    "static/js/main.d6b737a7.chunk.js"
+  ]
+}
