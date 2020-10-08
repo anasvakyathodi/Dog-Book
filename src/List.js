@@ -16,6 +16,7 @@ import {
   Divider,
   Box
 } from "@material-ui/core";
+import AutoSearchComplete from './components/AutoSearchComplete';
 import { ExpandMore as ExpandMoreIcon, Pets } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
@@ -30,6 +31,7 @@ const MyList = (props) => {
   const classes = useStyles();
   const { breedName, setBreedName,setValue } = props;
   const [breeds, setBreeds] = useState(undefined);
+  const [searchValue, setSearchValue] = useState(); 
 
   const [expandedPanel, setExpandedPanel] = useState(false);
 
@@ -37,17 +39,25 @@ const MyList = (props) => {
     setExpandedPanel(isExpanded ? key : false);
   };
 
+  const handleChange = (event) => {
+    let value = event.target.value.toLowerCase();
+    setSearchValue(value);
+  };
+
   useEffect(() => {
     axios.get("https://dog.ceo/api/breeds/list/all").then((response) => {
       console.log(response.data.message);
       setBreeds(response.data.message);
     });
-  }, []);
+  }, [searchValue]);
 
   return (
     <>
+      <AutoSearchComplete searchValue={searchValue} setSearchValue={setSearchValue} breeds={breeds} handleChange={(e)=>handleChange(e)} />
       {breeds ? (
-        Object.keys(breeds).map((key, i) => {
+        Object.keys(breeds)
+        .filter(key => searchValue !== '' && searchValue !== undefined ? key === searchValue: 'null')
+        .map((key, i) => {
           return (
             <Accordion
               key={i}
