@@ -12,6 +12,9 @@ import {
   Typography,
   CircularProgress,
   Grid,
+  Button,
+  Divider,
+  Box
 } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon, Pets } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
@@ -25,8 +28,15 @@ const useStyles = makeStyles({
 });
 const MyList = (props) => {
   const classes = useStyles();
-  const { breedName, setBreedName } = props;
+  const { breedName, setBreedName,setValue } = props;
   const [breeds, setBreeds] = useState(undefined);
+
+  const [expandedPanel, setExpandedPanel] = useState(false);
+
+  const handleAccordionChange = (key) => (event, isExpanded) => {
+    setExpandedPanel(isExpanded ? key : false);
+  };
+
   useEffect(() => {
     axios.get("https://dog.ceo/api/breeds/list/all").then((response) => {
       console.log(response.data.message);
@@ -45,6 +55,8 @@ const MyList = (props) => {
               onClick={() => {
                 setBreedName(key);
               }}
+              expanded={expandedPanel === key} 
+              onChange={handleAccordionChange(key)}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -72,12 +84,18 @@ const MyList = (props) => {
                             <Pets />
                           </Avatar>
                         </ListItemAvatar>
-                        <ListItemText primary={breed} />
+                        <ListItemText primary={breed} />                       
                       </ListItem>
                     ))
-                  )}
+                  )}              
                 </List>
               </AccordionDetails>
+              <Divider />
+              <Box p={2}>
+                  <Button variant="contained" color="secondary" onClick={() => setValue(1)} >
+                    Select
+                  </Button>
+              </Box>
             </Accordion>
           );
         })
