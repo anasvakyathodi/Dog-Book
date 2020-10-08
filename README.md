@@ -13,7 +13,7 @@ Upcoming features:
 ### Tech
 
 * [ReactJS](https://reactjs.org/) - Javascript based web framework!
-* [Material UI] - great UI boilerplate for modern web apps
+* [Material UI](https://material-ui.com) - great UI boilerplate for modern web apps
  * [VS Code](https://code.visualstudio.com/) -  efficient and light weight text editor
  * Dog API
 
