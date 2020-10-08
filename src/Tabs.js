@@ -62,7 +62,7 @@ export default function SimpleTabs() {
       </AppBar>
       <Paper>
         <TabPanel value={value} index={0}>
-          <MyList {...{ breedName, setBreedName }} />
+          <MyList {...{ breedName, setBreedName,value,setValue }} />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Image {...{ breedName }} />
