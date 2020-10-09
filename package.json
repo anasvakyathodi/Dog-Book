@@ -1,5 +1,6 @@
 {
   "name": "dog-api",
+  "homepage": "https://anasvakyathodi.github.io/Dog-Book",
   "version": "1.0.0",
   "description": "React example starter project",
   "keywords": [
@@ -12,6 +13,7 @@
     "@material-ui/icons": "4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "0.19.2",
+    "gh-pages": "^3.1.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-scripts": "^3.4.3"
@@ -23,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
