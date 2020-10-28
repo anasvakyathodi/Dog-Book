@@ -16,9 +16,9 @@ import {
 } from "@material-ui/core";
 import { NavigateNext } from "@material-ui/icons";
 
-const LoadingIndicator = (props)  => {
+const LoadingIndicator = (props) => {
   const { promiseInProgress } = usePromiseTracker(true);
-  return(
+  return (
     promiseInProgress && (
       <div
         style={{
@@ -26,10 +26,10 @@ const LoadingIndicator = (props)  => {
           height: "100%",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
-        <Loader type= "TailSpin" color="#f50057" height="60" width="60"></Loader>
+        <Loader type="TailSpin" color="#f50057" height="60" width="60"></Loader>
       </div>
     )
   );
@@ -37,41 +37,50 @@ const LoadingIndicator = (props)  => {
 
 const Image = (props) => {
   const { breedName } = props;
+  const [loaded, setLoaded] = useState(false);
   const [imgUrl, setImgUrl] = useState(undefined);
   useEffect(() => {
     if (breedName !== null) {
-      trackPromise(axios
+      trackPromise(
+        axios
+          .get(`https://dog.ceo/api/breed/${breedName}/images/random`)
+          .then((response) => {
+            const url = response.data.message.toString();
+            setImgUrl(url);
+          })
+      );
+    }
+  }, [breedName]);
+  const manageRefresh = () => {
+    trackPromise(
+      axios
         .get(`https://dog.ceo/api/breed/${breedName}/images/random`)
         .then((response) => {
           const url = response.data.message.toString();
           setImgUrl(url);
-      }));
-    }
-  }, [breedName]);
-  const manageRefresh = () => {
-    trackPromise(axios
-      .get(`https://dog.ceo/api/breed/${breedName}/images/random`)
-      .then((response) => {
-        const url = response.data.message.toString();
-        setImgUrl(url);
-      }));
+        })
+    );
   };
 
   return (
     <Card>
-      {imgUrl ? (
-        <CardMedia title="Dogs Image">
-          <LoadingIndicator />
-          <img
-            src={imgUrl}
-            alt={breedName}
-            style={({ height: "300px" }, { width: "100%" })}
-          />
-        </CardMedia>
-      ) : (
-        <Skeleton height={300} variant="rect" />
-      )}
-
+      <CardMedia
+        title="Dogs Image"
+        style={{ display: loaded ? "block" : "none" }}
+      >
+        <LoadingIndicator />
+        <img
+          src={imgUrl}
+          onLoad={() => setLoaded(true)}
+          alt={breedName}
+          style={({ height: "300px" }, { width: "100%" })}
+        />
+      </CardMedia>
+      <Skeleton
+        height={300}
+        variant="rect"
+        style={{ display: !loaded ? "block" : "none" }}
+      />
       <CardContent>
         <Typography
           gutterBottom
