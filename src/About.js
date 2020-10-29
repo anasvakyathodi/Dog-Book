@@ -1,42 +1,46 @@
 import React from "react";
-import { Card, CardContent, Typography, Link, CardHeader, makeStyles, Avatar } from "@material-ui/core";
+import { Card, CardContent, Typography, makeStyles, Avatar, Button, CardActions } from "@material-ui/core";
 import * as data from './data/contributers-list.json';
 
 const useStyle = makeStyles(theme => ({
-  root: {
-      maxWidth: 600,
-      display: 'flex',
-      justifyContent: 'flex-start',
-      marginRight: theme.spacing(0),
-      marginBottom: theme.spacing(2),
-      borderRadius: 10
+  contributers: {
+    margin: theme.spacing(2)
   },
+  root: {
+    maxWidth: 600,
+    borderRadius: 10,
+    margin: theme.spacing(2)
+  },
+  button: {
+    padding: "1em 2em",
+    marginLeft: theme.spacing(2)
+  },
+  content: {
+    display: 'flex',
+    justifyContent: "space-between",
+    alignItems: 'center'
+  }
 }));
 
 const About = () => {
   const classes = useStyle();
   return (
     <>
+      <Typography variant="h2" className={classes.contributers} component="h2">Contributers</Typography>
       {
         data.contributers.map((contributer) => (
-          <Card className={classes.root}>
-            <CardHeader
-            avatar={<Avatar alt="avatar" src={contributer.avatar_url}></Avatar>} 
-            title="Contributer"/>
-            <CardContent>
-              <Typography gutterBottom variant="body2" component="h2">
-                Developed By
-              </Typography>
-              <Typography variant="h3" component="p" gutterBottom>
+          <Card className={classes.root} elevation={3}>
+            <CardContent className={classes.content}>
+              <Typography variant="h4" component="p" gutterBottom>
                 {contributer.name}
               </Typography>
-              <Typography variant="subtitle1">Git :</Typography>
-              <Link href={contributer.username}>
-                <Typography variant="button" color="primary">
-                  {contributer.username}
-                </Typography>
-              </Link>
+              <Avatar alt="avatar" src={contributer.avatar_url}></Avatar>
+
             </CardContent>
+            <CardActions className={classes.actions}>
+              <Button variant="contained" color="primary" className={classes.button} href={contributer.username}>
+                Profile
+              </Button></CardActions>
           </Card>)
         )
       }
