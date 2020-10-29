@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/Dog-Book/static/js/main.25a418b3.chunk.js",
-    "main.js.map": "/Dog-Book/static/js/main.25a418b3.chunk.js.map",
+    "main.js": "/Dog-Book/static/js/main.a6a44969.chunk.js",
+    "main.js.map": "/Dog-Book/static/js/main.a6a44969.chunk.js.map",
     "runtime-main.js": "/Dog-Book/static/js/runtime-main.f03f2f2e.js",
     "runtime-main.js.map": "/Dog-Book/static/js/runtime-main.f03f2f2e.js.map",
-    "static/js/2.deae0dfb.chunk.js": "/Dog-Book/static/js/2.deae0dfb.chunk.js",
-    "static/js/2.deae0dfb.chunk.js.map": "/Dog-Book/static/js/2.deae0dfb.chunk.js.map",
+    "static/js/2.47de5ae2.chunk.js": "/Dog-Book/static/js/2.47de5ae2.chunk.js",
+    "static/js/2.47de5ae2.chunk.js.map": "/Dog-Book/static/js/2.47de5ae2.chunk.js.map",
     "index.html": "/Dog-Book/index.html",
-    "precache-manifest.5190e70c27a94a4d92b49c2eb0b95a1e.js": "/Dog-Book/precache-manifest.5190e70c27a94a4d92b49c2eb0b95a1e.js",
+    "precache-manifest.a342eb70f9ece3a1cf46f24c824ae0d7.js": "/Dog-Book/precache-manifest.a342eb70f9ece3a1cf46f24c824ae0d7.js",
     "service-worker.js": "/Dog-Book/service-worker.js",
-    "static/js/2.deae0dfb.chunk.js.LICENSE.txt": "/Dog-Book/static/js/2.deae0dfb.chunk.js.LICENSE.txt"
+    "static/js/2.47de5ae2.chunk.js.LICENSE.txt": "/Dog-Book/static/js/2.47de5ae2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f03f2f2e.js",
-    "static/js/2.deae0dfb.chunk.js",
-    "static/js/main.25a418b3.chunk.js"
+    "static/js/2.47de5ae2.chunk.js",
+    "static/js/main.a6a44969.chunk.js"
   ]
 }
