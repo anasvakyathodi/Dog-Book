@@ -29,7 +29,7 @@ const About = () => {
       <Typography variant="h2" className={classes.contributers} component="h2">Contributers</Typography>
       {
         data.contributers.map((contributer) => (
-          <Card className={classes.root} elevation={3}>
+          <Card className={classes.root} elevation={6}>
             <CardContent className={classes.content}>
               <Typography variant="h4" component="p" gutterBottom>
                 {contributer.name}
