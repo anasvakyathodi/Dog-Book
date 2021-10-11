@@ -12,9 +12,21 @@
   </head>
 
   <body style="margin: 0; height: 100%;">
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <div class="mode">
+        Dark mode:            
+        <span class="change">OFF</span>
+    </div>
+    <script>
+        $( ".change" ).on("click", function() {
+            if( $( "body" ).hasClass( "dark" )) {
+                $( "body" ).removeClass( "dark" );
+                $( ".change" ).text( "OFF" );
+            } else {
+                $( "body" ).addClass( "dark" );
+                $( ".change" ).text( "ON" );
+            }
+        });
+    </script>
     <div id="root"></div>
   </body>
 </html>
